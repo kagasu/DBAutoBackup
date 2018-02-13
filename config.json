@@ -1,0 +1,12 @@
+{
+    "db" : {
+        "host" : "127.0.0.1",
+        "user" : "user",
+        "password" : "password"
+    },
+    "exclue_db_names" : [
+        "information_schema",
+        "mysql",
+        "performance_schema"
+    ]
+}
