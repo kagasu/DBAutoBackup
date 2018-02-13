@@ -8,5 +8,8 @@
         "information_schema",
         "mysql",
         "performance_schema"
-    ]
+    ],
+    "aes" : {
+        "password": "09c9ea1ca79842da94df882d20887bb6"
+    }
 }

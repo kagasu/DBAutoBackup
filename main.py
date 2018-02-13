@@ -29,14 +29,22 @@ def main():
     os.mkdir(dirName)
 
     for dbName in dbNames:
-        mysqlDumpCommand = 'mysqldump -h{0} -u{1} --password={2} --events {3} | gzip > {4}/{3}.gz'.format(
+        mysqlDumpCommand = 'mysqldump -h{0} -u{1} --password={2} --events {4} | gzip > {3}/{4}.gz'.format(
             config.get('db').get('host'),
             config.get('db').get('user'),
             config.get('db').get('password'),
-            dbName,
-            dirName
+            dirName,
+            dbName
         )
+        encryptCommand = 'openssl aes-256-cbc -e -in {0}/{1}.gz -out {0}/{1}.gz.enc -pass pass:{2}'.format(
+            dirName,
+            dbName,
+            config.get('aes').get('password')
+        )
+
         subprocess.call(mysqlDumpCommand, shell=True)
+        subprocess.call(encryptCommand, shell=True)
+        os.remove('{0}/{1}.gz'.format(dirName, dbName))
     
     subprocess.call('drive upload --file {0}'.format(dirName), shell=True)
     shutil.rmtree(dirName)
