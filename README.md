@@ -14,7 +14,9 @@ Go to the following link in your browser: https://accounts.google.com/o/oauth2/a
 Enter verification code:
 ```
 2. Edit config.json  
-`$ vim config.json`
+```sh
+$ vim config.json
+```
 
 3. Change permission
 ```
