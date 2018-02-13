@@ -14,11 +14,11 @@ Go to the following link in your browser: https://accounts.google.com/o/oauth2/a
 Enter verification code:
 ```
 2. Edit config.json  
-`vim config.json`
+`$ vim config.json`
 
 3. Change permission
 ```
-chmod 777 /path/to/DBAutoBackup -R
+$ chmod 777 /path/to/DBAutoBackup -R
 ```
 
 4. Add cron
@@ -31,5 +31,5 @@ $ crontab -e
 
 ### How to decrypt
 ```sh
-openssl aes-256-cbc -d -in my_db.gz.enc -out my_db.gz -pass pass:09c9ea1ca79842da94df882d20887bb6
+$ openssl aes-256-cbc -d -in my_db.gz.enc -out my_db.gz -pass pass:09c9ea1ca79842da94df882d20887bb6
 ```
