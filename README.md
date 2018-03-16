@@ -35,3 +35,8 @@ $ crontab -e
 ```sh
 $ openssl aes-256-cbc -d -in my_db.gz.enc -out my_db.gz -pass pass:09c9ea1ca79842da94df882d20887bb6
 ```
+
+# FAQ
+- what is "period" ?  
+old backup file delete period.  
+default is 14 days.
