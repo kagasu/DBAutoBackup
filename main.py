@@ -69,7 +69,7 @@ def main():
         subprocess.call(encryptCommand, shell=True)
         os.remove('{0}/{1}.gz'.format(dirName, dbName))
 
-    subprocess.call('gdrive upload --file {0}'.format(dirName), shell=True)
+    subprocess.call('gdrive upload {0} -r'.format(dirName), shell=True)
     shutil.rmtree(dirName)
 
     DeleteOldBackup(config.get('gdrive').get('period'))
