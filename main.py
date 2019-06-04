@@ -7,6 +7,7 @@ import subprocess
 import os
 import shutil
 import datetime
+import time
 from collections import namedtuple
 
 def GetDatabaseNames(config):
@@ -70,6 +71,7 @@ def main():
         os.remove('{0}/{1}.gz'.format(dirName, dbName))
 
     subprocess.call('gdrive upload {0} -r'.format(dirName), shell=True)
+    time.sleep(1) # 1sec
     shutil.rmtree(dirName)
 
     DeleteOldBackup(config.get('gdrive').get('period'))
