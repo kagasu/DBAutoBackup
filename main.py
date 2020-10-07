@@ -17,7 +17,7 @@ def GetDatabaseNames(config):
     sql = 'show databases'
     cursor.execute(sql)
     dbNames = cursor.fetchall()
-    
+
     cursor.close()
     conn.close()
 
@@ -60,7 +60,7 @@ def main():
             dirName,
             dbName
         )
-        encryptCommand = 'openssl aes-256-cbc -e -in {0}/{1}.gz -out {0}/{1}.gz.enc -pass pass:{2}'.format(
+        encryptCommand = 'openssl aes-256-cbc -e -in {0}/{1}.gz -out {0}/{1}.gz.enc -pbkdf2 -pass pass:{2}'.format(
             dirName,
             dbName,
             config.get('aes').get('password')
